@@ -1,5 +1,5 @@
 # DataSUS EDA Python
-A collection of Python notebooks and scripts dedicated to Exploratory Data Analysis (EDA) of healthcare data from DataSUS\
+A collection of Python notebooks and scripts dedicated to Exploratory Data Analysis (EDA) of healthcare data from DataSUS
 
 This repository contains a collection of Jupyter Notebooks related to healthcare data analyses focusing on Tuberculosis cases and patient data in Brazil's Centro-Oeste region, along with a specific analysis concerning procedure codes.
 
