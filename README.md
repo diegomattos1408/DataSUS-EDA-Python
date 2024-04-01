@@ -14,9 +14,9 @@ Focusing on the Centro-Oeste region of Brazil, this notebook merges patient data
 This notebook is dedicated to processing and converting procedure codes (PA Codes). It includes steps for reading the original data files, ensuring they are in the correct format, and replacing the procedure codes with their descriptions. The process aims to make the dataset more accessible and understandable for users not familiar with the raw codes.
 
 ### How to Use
-Ensure you have Jupyter Notebook or JupyterLab installed to run these notebooks.\
-Each notebook contains step-by-step instructions for data processing and analysis.\
-Data files required for analysis are mentioned within the notebooks. Ensure you have access to these files before running the notebooks.\
+- Ensure you have Jupyter Notebook or JupyterLab installed to run these notebooks.
+- Each notebook contains step-by-step instructions for data processing and analysis.
+- Data files required for analysis are mentioned within the notebooks. Ensure you have access to these files before running the notebooks.
 
 **Requirements**
 - Python 3.x
