@@ -19,7 +19,7 @@ Each notebook contains step-by-step instructions for data processing and analysi
 Data files required for analysis are mentioned within the notebooks. Ensure you have access to these files before running the notebooks.\
 
 **Requirements**
-- Python 3.x\
-- Pandas\
-- Matplotlib (for visualizations)\
+- Python 3.x
+- Pandas
+- Matplotlib (for visualizations)
 - Other specific Python packages as mentioned within the notebooks.
