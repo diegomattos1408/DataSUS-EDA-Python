@@ -1,25 +1,21 @@
 # DataSUS EDA Python
-A collection of Python notebooks and scripts dedicated to Exploratory Data Analysis (EDA) of healthcare data from DataSUS
+This repository contains a series of Python notebooks and a Dash application designed for the analysis and visualization of tuberculosis data in Brazil for the first quarter of 2023. Each component is described below:
 
-This repository contains a collection of Jupyter Notebooks related to healthcare data analyses focusing on Tuberculosis cases and patient data in Brazil's Centro-Oeste region, along with a specific analysis concerning procedure codes.
-
-### Files Overview
-- [**Tuberculose A15 Janeiro 2023 EDA**](https://github.com/diguitarrista/DataSUS-EDA-Python/blob/main/codigos_pa.ipynb)\
-This notebook provides an Exploratory Data Analysis (EDA) on Tuberculosis cases for January 2023. It includes data cleaning, merging dataframes for different states, replacing NaN values, and creating visualizations to understand the distribution and frequency of Tuberculosis cases across different states. The notebook also outlines steps to save processed data for further analysis or BI visualization tools.
-
-- [**Região Centro Oeste PA Janeiro de 2023**](https://github.com/diguitarrista/DataSUS-EDA-Python/blob/main/regiao_centro_oeste.ipynb)\
-Focusing on the Centro-Oeste region of Brazil, this notebook merges patient data across four states, emphasizing the primary diagnosis code (PA_CIDPRI). It offers insights into the frequency of specific diagnosis codes, provides a pie chart visualization for the N180 code, calculates the weighted average age for each state, and exports the consolidated data to a CSV file for further examination.
-
-- [**Converting all the PA Codes**](https://github.com/diguitarrista/DataSUS-EDA-Python/blob/main/codigos_pa.ipynb)\
-This notebook is dedicated to processing and converting procedure codes (PA Codes). It includes steps for reading the original data files, ensuring they are in the correct format, and replacing the procedure codes with their descriptions. The process aims to make the dataset more accessible and understandable for users not familiar with the raw codes.
-
-### How to Use
-- Ensure you have Jupyter Notebook or JupyterLab installed to run these notebooks.
-- Each notebook contains step-by-step instructions for data processing and analysis.
-- Data files required for analysis are mentioned within the notebooks. Ensure you have access to these files before running the notebooks.
-
-**Requirements**
-- Python 3.x
-- Pandas
-- Matplotlib (for visualizations)
-- Other specific Python packages as mentioned within the notebooks.
+# Python Notebooks
+- **tuberculose_012023.ipynb**: Analysis of tuberculosis data for January 2023.
+- **tuberculose_022023.ipynb**: Analysis of tuberculosis data for February 2023.
+- **tuberculose_032023.ipynb**: Analysis of tuberculosis data for March 2023.
+- **tuberculose_0102032023.ipynb**: Combined analysis of tuberculosis data for the first quarter of 2023 (January, February, and March).
+  
+# Dash Application
+- **tuberculose_dash.py**: A Dash application for visualizing tuberculosis data. This app provides interactive charts and maps to explore the data by state, region, and month. The application is designed to be user-friendly and provides insights into the distribution and trends of tuberculosis cases across different regions of Brazil.
+# Features
+- Selection of state, region, and month for detailed data viewing.
+- Interactive charts and maps displaying the distribution of tuberculosis cases.
+- A table view for detailed data examination.
+# Style
+- **style.css**: The stylesheet for the Dash application. It contains custom styles that enhance the visual aspect of the web application, including layout adjustments, color schemes, and font settings.
+# Setup and Running
+- Ensure you have Python installed on your system.
+- Install the required libraries using pip install -r requirements.txt (you may need to create this file listing all the required packages such as dash, pandas, plotly, etc.).
+- Run the Dash application by executing python tuberculose_dash.py in your terminal.
