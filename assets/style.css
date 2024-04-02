@@ -1,0 +1,164 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+}
+
+/* Overall background color for the app */
+.app-background {
+    display: flex;
+    background-color:white;
+    color: darkblue;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    width: 100%;
+}
+h1{
+    font-size: 50px;
+}
+h1, h2, h3{
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+    color: white;
+    background-color: darkblue;
+    text-align: center;
+    border: 2px solid darkblue;
+    border-radius: 10px;
+    box-shadow: 0px 8px 16px 8px gray;
+}
+
+/* Sidebar styles with dropdown menus */
+.sidebar {
+    position: fixed;
+    overflow-y: auto;
+    width: 12%;
+    height: 40%;
+    padding: 1%;
+    padding-bottom: 6%;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-top: 1%;
+    display: inline-block;
+    vertical-align: top;
+    background-color: darkblue;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    border: 2px solid darkblue;
+    overflow: hidden;
+    box-shadow: 0px 8px 16px 8px gray;
+}
+.sidebar h2, h3{
+    box-shadow: none;
+}
+#month-dropdown, #region-dropdown, #state-dropdown{
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    color: darkblue;
+}
+
+/* Main content area styles */
+.main-content {
+    margin-left: 15%;
+    width: 100%; 
+    display: block; 
+}
+
+/* graphich */
+#total-procedures-per-state-chart{
+    background-color: lightgrey;
+    border-radius: 10px;
+    border: 2px solid darkblue;
+    overflow: hidden;
+    color: black;
+    margin-left: 1%;
+    margin-right: 1%;
+    box-shadow: 0px 8px 16px 8px gray;
+}
+
+/* Three charts */
+#state-distribution-chart{
+    display: flex;
+    justify-content: space-around;
+    align-items: center; 
+    flex-wrap: wrap; 
+}
+
+#state-distribution-chart-pie, #state-distribution-chart-bar, #procedures-pie-chart{
+    width: 32%;
+    background-color: lightgrey;
+    border-radius: 10px;
+    border: 2px solid darkblue;
+    overflow: hidden;
+    box-shadow: 0px 8px 16px 8px gray;
+    align-items: flex-start; 
+    justify-content: flex-start; 
+}
+    
+/* End table */
+.data_state{
+    margin-right: 1%;
+    justify-content: space-around;
+    align-items: center; 
+}
+
+/* Table */
+#data-table{
+    text-align: center;
+    font-size: 120%;
+    background-color: lightgrey;
+    border-radius: 10px;
+    border: 2px solid darkblue;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    color: darkblue;
+    vertical-align: top;
+    box-shadow: 0px 8px 16px 8px gray;
+}
+
+#data-table td, #data-table th {
+    padding: 16px; /* Adjust cell padding to increase size */
+}
+
+#data-table .dash-cell div.dash-cell-value {
+    /* Increase line height for content within cells for better readability */
+    line-height: 24px; /* Adjust as needed */
+}
+
+/*map and table */
+#table_map{
+    display: flex;
+    justify-content: space-around;
+    align-items: center; 
+    flex-wrap: wrap;
+}
+
+/* map*/
+#procedures-map{
+    width: 120%;
+    margin-left: 10%;
+    margin-right: 1%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    border-radius: 10px;
+    border: 2px solid darkblue;
+    overflow: hidden;
+    box-shadow: 0px 8px 16px 8px gray;
+}
+
+/* Table total */
+#table-container{
+    font-size: 16px;
+    border-radius: 10px;
+    border: 2px solid darkblue;
+    overflow: hidden;
+    box-shadow: 0px 8px 16px 8px gray;
+}
+
+
