@@ -2,7 +2,6 @@ import dash
 from dash import html, dcc, dash_table
 from dash.dependencies import Input, Output
 import plotly.express as px
-import plotly.graph_objs as go
 import base64
 import pandas as pd
 
