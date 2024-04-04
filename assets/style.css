@@ -3,17 +3,18 @@ body, html {
     padding: 0;
     height: 100%;
     width: 100%;
-    background-color: black;
 }
 
 /* Overall background color for the app */
 .app-background {
     display: flex;
-    background-color:white;
     color: darkblue;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bold;
     width: 100%;
+    background-image: url('/assets/tuberculose_bi.webp');
+    background-size: cover;
+    background-position: center;
 }
 h1{
     font-size: 50px;
@@ -71,7 +72,6 @@ h1, h2, h3{
 
 /* graphich */
 #total-procedures-per-state-chart{
-    background-color: lightgrey;
     border-radius: 10px;
     border: 2px solid darkblue;
     overflow: hidden;
@@ -91,7 +91,6 @@ h1, h2, h3{
 
 #state-distribution-chart-pie, #state-distribution-chart-bar, #procedures-pie-chart{
     width: 32%;
-    background-color: lightgrey;
     border-radius: 10px;
     border: 2px solid darkblue;
     overflow: hidden;
@@ -111,7 +110,6 @@ h1, h2, h3{
 #data-table{
     text-align: center;
     font-size: 120%;
-    background-color: lightgrey;
     border-radius: 10px;
     border: 2px solid darkblue;
     margin-left: auto;
