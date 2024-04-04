@@ -76,9 +76,9 @@ h1, h2, h3{
     border: 2px solid darkblue;
     overflow: hidden;
     color: black;
-    margin-left: 1%;
-    margin-right: 1%;
     box-shadow: 0px 8px 16px 8px gray;
+    margin-left: 2%;
+    margin-right: 2%;
 }
 
 /* Three charts */
@@ -139,6 +139,27 @@ h1, h2, h3{
 
 /* map*/
 #procedures-map{
+    border-radius: 10px;
+    border: 2px solid darkblue;
+    overflow: hidden;
+    box-shadow: 0px 8px 16px 8px gray;
+}
+
+#table-map{
+    border-radius: 10px;
+    border: 2px solid darkblue;
+    overflow: hidden;
+    box-shadow: 0px 8px 16px 8px gray;
+    width: 30%;
+    margin-left: 60%;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: -5%;
+    margin-bottom: 5%;
+}
+
+#regionpercent-chart-pie{
+    margin-top: -15%;
     border-radius: 10px;
     border: 2px solid darkblue;
     overflow: hidden;

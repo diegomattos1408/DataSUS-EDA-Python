@@ -5,13 +5,18 @@ import plotly.express as px
 import base64
 import pandas as pd
 
-# Load the CSV files into pandas dataframes
-df_jan = pd.read_csv('tuberculose_012023_total_state.csv')
-df_feb = pd.read_csv('tuberculose_022023_total_state.csv')
-df_mar = pd.read_csv('tuberculose_032023_total_state.csv')
+# Color pallet
+dark_blue_colors = ['#08306b', '#08519c', '#2171b5', '#4292c6', '#6baed6', '#9ecae1']
 
-combined_df = pd.read_csv('tuberculose_010203.csv')
-piechar_df = pd.read_csv('tuberculose_by_region_df.csv')
+# Load the CSV files into pandas dataframes
+df_jan = pd.read_csv('csv/tuberculose_012023_cent.csv')
+df_feb = pd.read_csv('csv/tuberculose_022023_cent.csv')
+df_mar = pd.read_csv('csv/tuberculose_032023_cent.csv')
+
+combined_df = pd.read_csv('csv/tuberculose_010203.csv')
+combined_df_cent = pd.read_csv('csv/tuberculose_010203.csv')
+piechar_df = pd.read_csv('csv/tuberculose_by_region_df.csv')
+piechar_df_region = pd.read_csv('csv/tuberculose_region_010203_cent.csv')
 
 # Define the Brazilian states by region
 regions = {
@@ -63,21 +68,22 @@ app.layout = html.Div([
     # Main content area for charts and tables
     html.Div([
         html.H1("Monthly and State Data Dashboard"),
-        html.H2("Total Procedures Chart per Month (Select Month)"),
+        html.H2("Most States with Procedures per 100 k"),
         
         # Container for the first chart and its title
         html.Div([
             dcc.Graph(id='total-procedures-per-state-chart'),
             ]),  # Closing the div for the first chart and title
         
-        html.H2("Map of Data of each State (Select Month)"),
+        html.H2("Map of Data of each State (Select Month and State)"),
         # Container for the map
         html.Div([
             html.Div([html.Img(id='procedures-map', src=''),
                       ], id="total_procedures_map"),  # Closing the div for the map
-            html.Div(id='table-container')
+            html.Div(dcc.Graph(id='regionpercent-chart-pie'))
             ], id='table_map'),
         
+        html.Div(id='table-map'),
         
         # Container with the three charts
         html.Div([
@@ -102,13 +108,13 @@ app.layout = html.Div([
     ], className='main-content'),  # Closing the main content area div
 ], className='app-background')  # Closing the app layout div
 
+# TABLE AT THE END
 # Callback to update table based on dropdowns
 @app.callback(
     Output('data-table', 'data'),
     [Input('month-dropdown', 'value'),
      Input('state-dropdown', 'value')]
 )
-
 def update_table(selected_month, selected_state):
     # Filter based on selected month first
     filtered_df = combined_df[combined_df['Month'] == selected_month]
@@ -127,11 +133,11 @@ def update_table(selected_month, selected_state):
     
     return filtered_df.to_dict('records')
 
+# FIRST CHART
 @app.callback(
     Output('total-procedures-per-state-chart', 'figure'),
     [Input('month-dropdown', 'value')]
 )
-
 def update_chart(selected_month):
     # Filter the DataFrame based on the selected month
     filtered_df = combined_df[(combined_df['Month'] == selected_month)]
@@ -145,6 +151,7 @@ def update_chart(selected_month):
     
     return fig
 
+# MAP
 # Callback to update the image based on the selected month
 @app.callback(
     Output('procedures-map', 'src'),
@@ -163,11 +170,13 @@ def update_image_src(selected_month):
     
     return src_data
 
+# TABLE BY THE MAP
 @app.callback(
-    Output('table-container', 'children'),
-    [Input('month-dropdown', 'value')]
+    Output('table-map', 'children'),
+    [Input('month-dropdown', 'value'),
+     Input('state-dropdown', 'value')]
 )
-def update_table_total(selected_month):
+def update_table_total(selected_month, selected_state):
     if selected_month == 'January':
         df_to_display = df_jan
     elif selected_month == 'February':
@@ -175,11 +184,44 @@ def update_table_total(selected_month):
     elif selected_month == 'March':
         df_to_display = df_mar
 
-    return dash_table.DataTable(
-        data=df_to_display.to_dict('records'),
-        columns=[{"name": i, "id": i} for i in df_to_display.columns]
-    )
+    # Filter DataFrame based on selected state
+    if selected_state is not None:
+        df_to_display = df_to_display[df_to_display['State'] == selected_state]
 
+    # Select only the desired columns
+    df_selected_columns = df_to_display[['State', 'Total Frequency per 100 thousand inhabitants']]
+    df_selected_columns = df_selected_columns[['State', 'Total Frequency per 100 thousand inhabitants']].rename(columns={'Total Frequency per 100 thousand inhabitants': 'Frequency 100 k inhabitants'})
+
+    # Convert DataFrame to dictionary
+    data = df_selected_columns.to_dict('records')
+    
+    # Define columns for DataTable
+    columns = [{'name': col, 'id': col} for col in df_selected_columns.columns]
+    
+    # Create DataTable
+    table = dash_table.DataTable(data=data, columns=columns)
+    
+    return table
+
+
+# PIE CHART BY THE MAP
+@app.callback(
+    Output('regionpercent-chart-pie', 'figure'),
+    [Input('month-dropdown', 'value')]
+)
+def char_region_(selected_month):
+    filtered_df = piechar_df_region
+    column_name = f"{selected_month} per 100k"  # This constructs the column name based on the selected month
+    
+    # Now use this column_name to specify the values for the pie chart
+    fig = px.pie(filtered_df, names='Region', 
+                 values=column_name,
+                 color_discrete_sequence=dark_blue_colors,
+                 title=f'Procedures per 100k Habitants by Region for {selected_month}',
+                 )
+    return fig
+
+# CHARTS
 @app.callback(
     Output('procedures-pie-chart', 'figure'),
     [Input('month-dropdown', 'value')]
@@ -188,7 +230,9 @@ def update_pie_chart(selected_month):
     filtered_df = piechar_df[piechar_df['Month'] == selected_month]
     # Assuming the data aggregation is needed per region for the pie chart
     procedures_per_region = filtered_df.iloc[:, 3:].sum()
-    fig = px.pie(procedures_per_region, values=procedures_per_region.values, names=procedures_per_region.index, title=f"Total Procedures in {selected_month}")
+    fig = px.pie(procedures_per_region, values=procedures_per_region.values, 
+                 color_discrete_sequence=dark_blue_colors,
+                 names=procedures_per_region.index, title=f"Total Procedures in {selected_month}")
         
     return fig
 
@@ -202,9 +246,10 @@ def update_pie_bar_chart_region(selected_region, selected_month):
     # Filter the data for the selected region and month
     filtered_data = combined_df[combined_df['Month'] == selected_month][regions[selected_region]].sum().reset_index()
     filtered_data.columns = ['State', 'Count']
-    # Create a pie chart
-    pie_fig = px.pie(filtered_data, values='Count', names='State', title=f'Distribution in {selected_region} for {selected_month}')
-    
+    # Create a pie chart with a blue color scale
+    pie_fig = px.pie(filtered_data, values='Count', names='State',
+                 title=f'Distribution in {selected_region} for {selected_month}',
+                 color_discrete_sequence=dark_blue_colors)
     # Create a bar chart
     bar_fig = px.bar(filtered_data, x='State', y='Count', title=f'Distribution in {selected_region} for {selected_month}')
     
