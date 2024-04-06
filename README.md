@@ -1,6 +1,9 @@
 # DataSUS EDA Python
 This repository contains a series of Python notebooks and a Dash application designed for the analysis and visualization of tuberculosis data in Brazil for the first quarter of 2023. Each component is described below:
 
+- Dashboard n180 DataSUS
+![Power BI Dashboard](assets/n180_bi.png)
+- Dashboard A15 DataSUS
 ![Power BI Dashboard](assets/tuberculose_bi.png)
 
 # Python Notebooks
