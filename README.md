@@ -12,7 +12,7 @@ This repository contains a series of Python notebooks and a Dash application des
 - **tuberculose_032023.ipynb**: Analysis of tuberculosis data for March 2023.
 - **tuberculose_0102032023.ipynb**: Combined analysis of tuberculosis data for the first quarter of 2023 (January, February, and March).
 - **n180_EDA.ipynb**: Analysis of doença renal estágio final for January 2023.
-- **n180_calc.ipynb**: calculations relevant to the N180 project.
+- **n180_EDA_2.ipynb**: calculations relevant to the N180 project.
 
 # Dash Application
 - **tuberculose_dash.py**: A Dash application for visualizing tuberculosis data. This app provides interactive charts and maps to explore the data by state, region, and month. The application is designed to be user-friendly and provides insights into the distribution and trends of tuberculosis cases across different regions of Brazil.
