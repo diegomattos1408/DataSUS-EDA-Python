@@ -5,8 +5,8 @@ This repository contains a series of Python notebooks and a Dash application des
 ![Power BI Dashboard](assets/a23_bi.gif)
 
 - Dashboard N18 DataSUS
-![Power BI Dashboard](assets/n180_bi.png)
-
+<p>![Power BI Dashboard](assets/n180_bi.png)
+<br></p>
 - Dashboard A15 DataSUS
 ![Power BI Dashboard](assets/tuberculose_bi.png)
 
