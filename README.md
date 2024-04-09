@@ -7,7 +7,7 @@ This repository contains a series of Python notebooks and a Dash application des
 ![Power BI Dashboard](assets/tuberculose_bi.png)
 - Dashboard A15 DataSUS using dash python
 ![Dashboard Python](assets/tuberculose_dash.jpeg)
-- Dashboard A23 DataSUS
+- [Dashboard A23 DataSUS](https://www.linkedin.com/feed/update/urn:li:activity:7183491205735890944/)
 
 
 # Python Notebooks
