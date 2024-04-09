@@ -8,7 +8,7 @@ This repository contains a series of Python notebooks and a Dash application des
 - Dashboard A15 DataSUS using dash python
 ![Dashboard Python](assets/tuberculose_dash.jpeg)
 - Dashboard A23 DataSUS
-![Power BI Dashboard](assets/a23_bi.gif)
+- ![Power BI Dashboard](assets/a23_bi.gif)
 
 # Python Notebooks
 - **tuberculose_012023.ipynb**: Analysis of tuberculosis data for January 2023.
