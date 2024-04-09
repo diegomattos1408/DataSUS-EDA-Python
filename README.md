@@ -2,7 +2,7 @@
 This repository contains a series of Python notebooks and a Dash application designed for the analysis and visualization of data from DataSUS Each component is described below:
 
 - Dashboard A23 DataSUS
-![Power BI Dashboard](assets/a23_bi.gif)
+- ![Power BI Dashboard](assets/a23_bi.gif)
 - Dashboard N18 DataSUS
 ![Power BI Dashboard](assets/n180_bi.png)
 - Dashboard A15 DataSUS
